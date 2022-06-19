@@ -7,10 +7,11 @@ namespace Простая_сортировка
     class Program
     {
         public static int length = 8;
+        public static int[] original_massive = new int[length];
         static void Main(string[] args)
         {
             Random random = new Random();
-            int[] original_massive = new int[length];
+            
             for (int i = 0; i < length; i++)
             {
                 original_massive[i] = random.Next(0, 20);
@@ -22,21 +23,17 @@ namespace Простая_сортировка
             }
             Console.WriteLine();
             List<int> list = new List<int>();
-            List<int> list2 = new List<int>();
-            for (int i = 0; i < length; i++)
-            {
-                list.Add(original_massive[i]);
-            }
-            for (int i = 0; i < length; i++)
-            {
-                list2.Add(original_massive[i]);
-            }
+            RegenList(list);
             int[] vozrostanie_massive = new int[length];
             int[] ubyvanie_massive = new int[length];
             int[] even_not_massive = new int[length];
             SortVozr(vozrostanie_massive, list);
             Console.WriteLine();
-            SortUbyv(ubyvanie_massive, list2);
+            RegenList(list);
+            SortUbyv(ubyvanie_massive, list);
+            RegenList(list);
+            Console.WriteLine();
+            SortEven(even_not_massive, list);
         }
         static void SortVozr(int[] b, List<int> c)
         {
@@ -59,6 +56,38 @@ namespace Простая_сортировка
                 p.Remove(p.Max());
             }
             Console.WriteLine("Отсортировано по убыванию - ");
+            for (int i = 0; i < l.Length; i++)
+            {
+                Console.Write(l[i] + " ");
+            }
+        }
+        static void RegenList(List<int> list)
+        {
+            for (int i = 0; i < length; i++)
+            {
+                list.Add(original_massive[i]);
+            }
+        }
+        static void SortEven(int[] l, List<int> p)
+        {
+            int a = 0;
+            for (int i = 0; i < length; i++)
+            {
+                if (p[i] % 2 == 0)
+                {
+                    l[a] = p[i];
+                    a++;
+                }
+            }
+            for (int i = 0; i < length; i++)
+            {
+                if (p[i] % 2 != 0)
+                {
+                    l[a] = p[i];
+                    a++;
+                }
+            }
+            Console.WriteLine("Отсортировано по чётным и нечётным числам");
             for (int i = 0; i < l.Length; i++)
             {
                 Console.Write(l[i] + " ");
