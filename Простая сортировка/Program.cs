@@ -34,6 +34,7 @@ namespace Простая_сортировка
             RegenList(list);
             Console.WriteLine();
             SortEven(even_not_massive, list);
+            Console.ReadKey();
         }
         static void SortVozr(int[] b, List<int> c)
         {
