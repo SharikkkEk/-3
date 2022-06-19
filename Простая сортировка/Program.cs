@@ -22,10 +22,14 @@ namespace Простая_сортировка
             }
             Console.WriteLine();
             List<int> list = new List<int>();
-            List<int> list2 = list;
+            List<int> list2 = new List<int>();
             for (int i = 0; i < length; i++)
             {
                 list.Add(original_massive[i]);
+            }
+            for (int i = 0; i < length; i++)
+            {
+                list2.Add(original_massive[i]);
             }
             int[] vozrostanie_massive = new int[length];
             int[] ubyvanie_massive = new int[length];
