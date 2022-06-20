@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.32510.428
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Тз 3", "Тз 3\Тз 3.csproj", "{0D61D9D4-6FB8-4555-A2FB-0CAAA7ABCB49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Простая сортировка", "Простая сортировка\Простая сортировка.csproj", "{90564DBC-9830-45F4-8DC1-FCC84AACD139}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Простая сортировка", "Простая сортировка\Простая сортировка.csproj", "{90564DBC-9830-45F4-8DC1-FCC84AACD139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Выборка элементов", "Выборка элементов\Выборка элементов.csproj", "{998AE994-B1CA-48C1-9445-BF260FAF3B4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{90564DBC-9830-45F4-8DC1-FCC84AACD139}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90564DBC-9830-45F4-8DC1-FCC84AACD139}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90564DBC-9830-45F4-8DC1-FCC84AACD139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{998AE994-B1CA-48C1-9445-BF260FAF3B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{998AE994-B1CA-48C1-9445-BF260FAF3B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{998AE994-B1CA-48C1-9445-BF260FAF3B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{998AE994-B1CA-48C1-9445-BF260FAF3B4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
