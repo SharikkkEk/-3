@@ -11,36 +11,305 @@ namespace Massives
         public static int[] o_massive = new int[8];
         public static Random random = new Random();
         public static int[,] m_massive = new int[3, 3];
+        static void ContinueMMass()
+        {
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Что делать дальше?");
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("1 - Поменять местами 1-ую и 3-ю строку массива");
+            Console.WriteLine("2 - Найти сумму всех двузначных элементов");
+            Console.WriteLine("3 - Найти сумму всех элементов, кратных 5");
+            Console.WriteLine("4 - Поменять местами элементы 1-го и 3-го столбцов");
+            Console.WriteLine("5 - Обнулить элементы ниже главной диагонали");
+            Console.WriteLine("6 - Обнулить элементы выше главной диагонали");
+            Console.WriteLine("7 - Обнулить элементы ниже побочной диагонали");
+            Console.WriteLine("8 - Обнулить элементы выше побочной диагонали");
+            Console.WriteLine("9 - Вызов изначального меню");
+            Console.WriteLine("=========================================================================");
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D1:
+                    PomMestStroki();
+                    break;
+                case ConsoleKey.D2:
+                    SumDvuzn();
+                    break;
+                case ConsoleKey.D3:
+                    SumEl5();
+                    break;
+                case ConsoleKey.D4:
+                    PomMestStolb();
+                    break;
+                case ConsoleKey.D5:
+                    ObnNizhGl();
+                    break;
+                case ConsoleKey.D6:
+                    ObnVishGl();
+                    break;
+                case ConsoleKey.D7:
+                    ObnNizhPob();
+                    break;
+                case ConsoleKey.D8:
+                    ObnVishPob();
+                    break;
+                case ConsoleKey.D9:
+                    Main();
+                    break;
+                default:
+                    ContinueMMass();
+                    break;
+            }
+        }
         static void ObnVishPob()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 2 - i; j++)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
+            Console.WriteLine("Обнулены элементы выше побочной диагонали");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueMMass();
         }
         static void ObnNizhPob()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            for (int i = 2; i > 0; i--)
+            {
+                for (int j = 2; j > 2 - i; j--)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
+            Console.WriteLine("Обнулены элементы ниже побочной диагонали");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueMMass();
         }
         static void ObnVishGl()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 2; j > 0 + i; j--)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
+            Console.WriteLine("Обнулены элементы выше главной диагонали");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueMMass();
         }
         static void ObnNizhGl()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            for (int i = 2; i != 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
+            Console.WriteLine("Обнулены элементы ниже главной диагонали");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueMMass();
         }
         static void PomMestStolb()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            List<int> stolb_1 = new List<int>();
+            List<int> stolb_3 = new List<int>();
+            for (int i = 0; i < m_massive.GetLength(1); i++)
+            {
+                stolb_1.Add(m_massive[i, 0]);
+            }
+            for (int i = 0; i < m_massive.GetLength(1); i++)
+            {
+                stolb_3.Add(m_massive[i, 2]);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                m_massive_2[i, 2] = stolb_1[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                m_massive_2[i, 0] = stolb_3[i];
+            }
+            Console.WriteLine("Поменяты местами 1-ый и 3-ий столбы:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueMMass();
         }
         static void SumEl5()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int sum_5 = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (m_massive[i, j] % 5 == 0)
+                    {
+                        sum_5 += m_massive[i, j];
+                    }
+                }
+            }
+            Console.WriteLine($"Cумма всъ элементов массива, кратных 5: {sum_5}");
+            ContinueMMass();
         }
         static void SumDvuzn()
         {
-
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            int sum = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (m_massive[i, j] % 2 == 0)
+                    {
+                        sum += m_massive[i, j];
+                    }
+                }
+            }
+            Console.WriteLine($"Сумма всех двузначных элементов массива: {sum}");
+            ContinueMMass();
         }
         static void PomMestStroki()
         {
+            Console.Clear();
             Console.WriteLine("Оригинальный массив:");
             for (int i = 0; i < 3; i++)
             {
@@ -76,7 +345,7 @@ namespace Massives
             {
                 m_massive_2[0, i] = strok_3[i];
             }
-            Console.WriteLine("Поменяты места 1-ой и 3-ой строк:");
+            Console.WriteLine("Поменяты местами 1-ая и 3-я строки:");
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
@@ -85,6 +354,7 @@ namespace Massives
                 }
                 Console.WriteLine();
             }
+            ContinueMMass();
         }
         static void MnogomerniyMassGenerate() 
         {
@@ -116,18 +386,25 @@ namespace Massives
                     PomMestStroki();
                     break;
                 case ConsoleKey.D2:
+                    SumDvuzn();
                     break;
                 case ConsoleKey.D3:
+                    SumEl5();
                     break;
                 case ConsoleKey.D4:
+                    PomMestStolb();
                     break;
                 case ConsoleKey.D5:
+                    ObnNizhGl();
                     break;
                 case ConsoleKey.D6:
+                    ObnVishGl();
                     break;
                 case ConsoleKey.D7:
+                    ObnNizhPob();
                     break;
                 case ConsoleKey.D8:
+                    ObnVishPob();
                     break;
                 default:
                     MnogomerniyMass();
@@ -136,6 +413,7 @@ namespace Massives
         }
         static void ContinueOMass()
         {
+            Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("Что делать дальше?");
             Console.WriteLine("=========================================================================");

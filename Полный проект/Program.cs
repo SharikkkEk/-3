@@ -8,11 +8,20 @@ namespace Полный_проект
     {
         public static void Main(string[] args)
         {
-            // подождет 1с и вызовет SomeMethod 1 раз
-            var t1 = new System.Threading.Timer(SomeWork, null, TimeSpan.FromSeconds(1), TimeSpan.Zero);
-            // подождет 5с и будет вызывать SomeMethod раз в секунду
-            var t2 = new System.Threading.Timer(SomeWork, null, TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(1));
-            Console.ReadKey();
+            for (int i = 2; i > 0; i--)
+            {
+                for (int j = 2; j > 2 - i; j--)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
+            for (int i = 2; i != 0; i--)
+            {
+                for (int j = 0; j < i; j++)
+                {
+                    m_massive_2[i, j] = 0;
+                }
+            }
         }
 
         public static void SomeWork(object state)
