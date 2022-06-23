@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Massives
 {
-    public class Program
+    public class Program 
     {
         public static int[] o_massive = new int[8];
         public static Random random = new Random();
