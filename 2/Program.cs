@@ -6,18 +6,93 @@ using System.Threading.Tasks;
 
 namespace Massives
 {
-    public class Program 
+    public class Program
     {
         public static int[] o_massive = new int[8];
         public static Random random = new Random();
         public static int[,] m_massive = new int[3, 3];
+        static void ObnVishPob()
+        {
+
+        }
+        static void ObnNizhPob()
+        {
+
+        }
+        static void ObnVishGl()
+        {
+
+        }
+        static void ObnNizhGl()
+        {
+
+        }
+        static void PomMestStolb()
+        {
+
+        }
+        static void SumEl5()
+        {
+
+        }
+        static void SumDvuzn()
+        {
+
+        }
+        static void PomMestStroki()
+        {
+            Console.WriteLine("Оригинальный массив:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive[i, j] + " ");
+                }   
+                Console.WriteLine();
+            }
+            int[,] m_massive_2 = new int[3, 3];
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    m_massive_2[i, j] = m_massive[i, j];
+                }
+            }
+            List<int> strok_1 = new List<int>();
+            List<int> strok_3 = new List<int>();
+            for (int i = 0; i < m_massive.GetLength(1); i++)
+            {
+                strok_1.Add(m_massive[0, i]);
+            }
+            for (int i = 0; i < m_massive.GetLength(1); i++)
+            {
+                strok_3.Add(m_massive[2, i]);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                m_massive_2[2, i] = strok_1[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                m_massive_2[0, i] = strok_3[i];
+            }
+            Console.WriteLine("Поменяты места 1-ой и 3-ой строк:");
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.Write(m_massive_2[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
         static void MnogomerniyMassGenerate() 
         {
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    m_massive[i, j] = random.Next();
+                    m_massive[i, j] = random.Next(0, 20);
                 }
             }
         }
@@ -31,10 +106,33 @@ namespace Massives
             Console.WriteLine("3 - Найти сумму всех элементов, кратных 5");
             Console.WriteLine("4 - Поменять местами элементы 1-го и 3-го столбцов");
             Console.WriteLine("5 - Обнулить элементы ниже главной диагонали");
-            Console.WriteLine("6 - Выборка элементов");
-            Console.WriteLine("7 - Выборка элементов");
-            Console.WriteLine("8 - Выборка элементов");
+            Console.WriteLine("6 - Обнулить элементы выше главной диагонали");
+            Console.WriteLine("7 - Обнулить элементы ниже побочной диагонали");
+            Console.WriteLine("8 - Обнулить элементы выше побочной диагонали");
             Console.WriteLine("=========================================================================");
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D1:
+                    PomMestStroki();
+                    break;
+                case ConsoleKey.D2:
+                    break;
+                case ConsoleKey.D3:
+                    break;
+                case ConsoleKey.D4:
+                    break;
+                case ConsoleKey.D5:
+                    break;
+                case ConsoleKey.D6:
+                    break;
+                case ConsoleKey.D7:
+                    break;
+                case ConsoleKey.D8:
+                    break;
+                default:
+                    MnogomerniyMass();
+                    break;
+            }
         }
         static void ContinueOMass()
         {
