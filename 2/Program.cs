@@ -11,6 +11,139 @@ namespace Massives
         public static int[] o_massive = new int[8];
         public static Random random = new Random();
         public static int[,] m_massive = new int[3, 3];
+        static void MyMassiveP() 
+        {
+            Console.Clear();
+            Console.WriteLine("Введите количество столбиков");
+            int x = int.Parse(Console.ReadLine());
+            int[][] s_massive = new int[x][];
+            for (int i = 0; i < s_massive.Length; i++)
+            {
+                Console.WriteLine($"Введите длину {i + 1} строки");
+                int y = int.Parse(Console.ReadLine());
+                s_massive[i] = new int[y];
+                for (int j = 0; j < y; j++)
+                {
+                    Console.WriteLine($"Введите {j + 1} элемент");
+                    s_massive[i][j] = int.Parse(Console.ReadLine());
+                }
+            }
+            for (int i = 0; i < s_massive.Length; i++)
+            {
+                for (int j = 0; j < s_massive[i].Length; j++)
+                {
+                    Console.Write(s_massive[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Введите x");
+            int k = int.Parse(Console.ReadLine());
+            Console.WriteLine("Все числа массива, что меньше x и выше побочной диагонали: ");
+            for (int i = 0; i < s_massive.Length - 1; i++)
+            {
+                for (int l = 0; l < s_massive[i].Length - 1 - i; l++)
+                {
+                    if (s_massive[i][l] < k)
+                    {
+                        Console.Write(s_massive[i][l] + " ");
+                    }
+                }
+            }
+            ContinueSMassive();
+        }
+        static void MyMassiveG() 
+        {
+            Console.Clear();
+            Console.WriteLine("Введите количество столбиков");
+            int x = int.Parse(Console.ReadLine());
+            int[][] s_massive = new int[x][];
+            for (int i = 0; i < s_massive.Length; i++)
+            {
+                Console.WriteLine($"Введите длину {i+1} строки");
+                int y = int.Parse(Console.ReadLine());
+                s_massive[i] = new int[y];
+                for (int j = 0; j < y; j++)
+                {
+                    Console.WriteLine($"Введите {j+1} элемент");
+                    s_massive[i][j] = int.Parse(Console.ReadLine());
+                }
+            }
+            for (int i = 0; i < s_massive.Length; i++)
+            {
+                for (int j = 0; j < s_massive[i].Length; j++)
+                {
+                    Console.Write(s_massive[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("Введите x");
+            int k = int.Parse(Console.ReadLine());
+            for (int i = 0; i < s_massive.Length - 1; i++)
+            {
+                for (int l = s_massive[i].Length - 1; l > i; l--)
+                {
+                    if (s_massive[i][l] < k)
+                    {
+                        s_massive[i][l] = 0;
+                    }
+                }
+            }
+            Console.WriteLine("Обнулены все элементы массива, что меньше x и выше главной диагонали");
+            for (int i = 0; i < s_massive.Length; i++)
+            {
+                for (int j = 0; j < s_massive[i].Length; j++)
+                {
+                    Console.Write(s_massive[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+            ContinueSMassive();
+        }
+        static void ContinueSMassive()
+        {
+            Console.WriteLine("Что делать дальше?");
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("1 - Cоздать свой массив и обнулить числа, которые меньше x и выше главной диагонали");
+            Console.WriteLine("2 - Cоздать свой массив и вывести числа, которые меньше x и выше побочной диагонали");
+            Console.WriteLine("3 - Вызвать изначальное меню");
+            Console.WriteLine("=========================================================================");
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D1:
+                    MyMassiveG();
+                    break;
+                case ConsoleKey.D2:
+                    MyMassiveP();
+                    break;
+                case ConsoleKey.D3:
+                    Main();
+                    break;
+                default:
+                    Super_Massive();
+                    break;
+            }
+        }
+        static void Super_Massive() 
+        {
+            Console.Clear();
+            Console.WriteLine("Что делать дальше?");
+            Console.WriteLine("=========================================================================");
+            Console.WriteLine("1 - Cоздать свой массив и обнулить числа, которые меньше x и выше главной диагонали");
+            Console.WriteLine("2 - Cоздать свой массив и вывести числа, которые меньше x и выше побочной диагонали");
+            Console.WriteLine("=========================================================================");
+            switch (Console.ReadKey(true).Key)
+            {
+                case ConsoleKey.D1:
+                    MyMassiveG();
+                    break;
+                case ConsoleKey.D2:
+                    MyMassiveP();
+                    break;
+                default:
+                    Super_Massive();
+                    break;
+            }
+        }
         static void ContinueMMass()
         {
             Console.WriteLine();
@@ -697,7 +830,7 @@ namespace Massives
                     MnogomerniyMass();
                     break;
                 case ConsoleKey.D:
-                    Console.WriteLine("D");
+                    Super_Massive();
                     break;
                 default:
                     Main();

@@ -8,20 +8,8 @@ namespace Полный_проект
     {
         public static void Main(string[] args)
         {
-            for (int i = 2; i > 0; i--)
-            {
-                for (int j = 2; j > 2 - i; j--)
-                {
-                    m_massive_2[i, j] = 0;
-                }
-            }
-            for (int i = 2; i != 0; i--)
-            {
-                for (int j = 0; j < i; j++)
-                {
-                    m_massive_2[i, j] = 0;
-                }
-            }
+            int[] a = { 3, 4, 5 };
+            Console.WriteLine(a.Length);
         }
 
         public static void SomeWork(object state)
