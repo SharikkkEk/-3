@@ -431,7 +431,7 @@ namespace Massives
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (m_massive[i, j] % 2 == 0)
+                    if (m_massive[i, j] > 9 && m_massive[i, j] < 100)
                     {
                         sum += m_massive[i, j];
                     }
